@@ -57,9 +57,14 @@ class FeedMapper {
 		$result = $stmt->execute(array($this->userid));
 
 		$feeds = array();
-		while($row = $result->fetchRow()){
-			$feed = $this->fromRow($row);
-			array_push($feeds, $feed);
+		while ($row = $result->fetchRow()) {
+				$url = $row['url'];
+				$id = $row['id'];
+				$folderid = $row['folder_id'];
+				$userid = $row['user_id'];
+				$title = $row['title'];
+				$feeds[] = array("url" => $url, "id" => $id, "folderid" => $folderid,
+						'userid' => $userid, 'title' => $title );
 		}
 
 		return $feeds;

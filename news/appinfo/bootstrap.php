@@ -5,7 +5,7 @@
 * @author Alessandro Copyright
 * @author Bernhard Posselt
 * @copyright 2012 Alessandro Cosentino cosenal@gmail.com
-* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com                    
+* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com
 *
 * This file is licensed under the Affero General Public License version 3 or later.
 * See the COPYING-README file
@@ -45,6 +45,7 @@ namespace OCA\News;
 \OC::$CLASSPATH['OCA\News\NewsController'] = 'apps/news/controllers/news.controller.php';
 \OC::$CLASSPATH['OCA\News\NewsAjaxController'] = 'apps/news/controllers/news.ajax.controller.php';
 
+\OC::$CLASSPATH['OC_News_API_Feeds'] = 'apps/news/lib/external_api/feeds.php';
 
 /**
  * @return a new DI container with prefilled values for the news app
@@ -52,13 +53,13 @@ namespace OCA\News;
 function createDIContainer(){
 	$newsContainer = new \Pimple();
 
-	/** 
+	/**
 	 * CONSTANTS
 	 */
 	$newsContainer['AppName'] = 'news';
 
 
-	/** 
+	/**
 	 * CLASSES
 	 */
 	$newsContainer['API'] = $newsContainer->share(function($c){
@@ -72,10 +73,10 @@ function createDIContainer(){
 
 
 	$newsContainer['Security'] = $newsContainer->share(function($c) {
-		return new Security($c['AppName']);	
+		return new Security($c['AppName']);
 	});
 
-	/** 
+	/**
 	 * MAPPERS
 	 */
 	$newsContainer['ItemMapper'] = $newsContainer->share(function($c){
@@ -91,16 +92,16 @@ function createDIContainer(){
 	});
 
 
-	/** 
+	/**
 	 * CONTROLLERS
 	 */
 	$newsContainer['NewsController'] = function($c){
-		return new NewsController($c['Request'], $c['API'], $c['FeedMapper'], 
+		return new NewsController($c['Request'], $c['API'], $c['FeedMapper'],
 									$c['FolderMapper']);
 	};
 
 	$newsContainer['NewsAjaxController'] = function($c){
-		return new NewsAjaxController($c['Request'], $c['API'], $c['FeedMapper'], 
+		return new NewsAjaxController($c['Request'], $c['API'], $c['FeedMapper'],
 										$c['FolderMapper'], $c['ItemMapper']);
 	};
 
