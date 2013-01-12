@@ -45,7 +45,9 @@ namespace OCA\News;
 \OC::$CLASSPATH['OCA\News\NewsController'] = 'apps/news/controllers/news.controller.php';
 \OC::$CLASSPATH['OCA\News\NewsAjaxController'] = 'apps/news/controllers/news.ajax.controller.php';
 
-\OC::$CLASSPATH['OC_News_API_Feeds'] = 'apps/news/lib/external_api/feeds.php';
+\OC::$CLASSPATH['OCA\News\API_Feed'] = 'apps/news/lib/external_api/feed.php';
+\OC::$CLASSPATH['OCA\News\API_Folder'] = 'apps/news/lib/external_api/folder.php';
+\OC::$CLASSPATH['OCA\News\FeedLogic'] = 'apps/news/controllers/feedlogic.php';
 
 /**
  * @return a new DI container with prefilled values for the news app

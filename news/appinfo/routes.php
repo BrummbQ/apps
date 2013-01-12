@@ -192,20 +192,20 @@ $this->create('news_ajax_setallitemsread', '/ajax/setallitemsread')->action(
 );
 
 // feeds
-\OCP\API::register('get', '/news/feeds', array('OC_News_API_Feeds', 'getFeeds'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('post', '/news/feeds', array('OC_News_API_Feeds', 'addFeed'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('get', '/news/feeds/{feedid}', array('OC_News_API_Feeds', 'getFeed'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('put', '/news/feeds/{feedid}', array('OC_News_API_Feeds', 'editFeed'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('delete', '/news/feeds/{feedid}', array('OC_News_API_Feeds', 'deleteFeed'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('get', '/news/folders/{folderid}/feeds', array('OC_News_API_Feeds', 'getFromFolder'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('post', '/news/folders/{folderid}/feeds', array('OC_News_API_Feeds', 'addToFolder'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('delete', '/news/folders/{folderid}/feeds', array('OC_News_API_Feeds', 'removeFromFolder'), 'provisioning_api', \OC_API::USER_AUTH);
+\OCP\API::register('get', '/news/feeds', array('OCA\News\API_Feed', 'getFeeds'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('post', '/news/feeds', array('OC_News_API_Feeds', 'addFeed'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('get', '/news/feeds/{feedid}', array('OC_News_API_Feeds', 'getFeed'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('put', '/news/feeds/{feedid}', array('OC_News_API_Feeds', 'editFeed'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('delete', '/news/feeds/{feedid}', array('OC_News_API_Feeds', 'deleteFeed'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('get', '/news/folders/{folderid}/feeds', array('OC_News_API_Feeds', 'getFromFolder'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('post', '/news/folders/{folderid}/feeds', array('OC_News_API_Feeds', 'addToFolder'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('delete', '/news/folders/{folderid}/feeds', array('OC_News_API_Feeds', 'removeFromFolder'), 'news', \OC_API::USER_AUTH);
 // folders
-\OCP\API::register('get', '/news/folders/', array('OC_News_API_Folders', 'getFolders'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('post', '/news/folders/', array('OC_News_API_Folders', 'addFolder'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('get', '/news/folders/{folderid}', array('OC_News_API_Folders', 'getFolder'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('put', '/news/folders/{folderid}', array('OC_News_API_Folders', 'editFolder'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('delete', '/news/folders/{folderid}', array('OC_News_API_Folders', 'deleteFolder'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('get', '/news/folders/{folderid}/folders', array('OC_News_API_Folders', 'getFromFolder'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('post', '/news/folders/{folderid}/folders', array('OC_News_API_Folders', 'addToFolder'), 'provisioning_api', \OC_API::USER_AUTH);
-\OCP\API::register('delete', '/news/folders/{folderid}/folders', array('OC_News_API_Folders', 'removeFromFolder'), 'provisioning_api', \OC_API::USER_AUTH);
+\OCP\API::register('get', '/news/folders', array('OCA\News\API_Folder', 'getFolders'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('post', '/news/folders/', array('OC_News_API_Folders', 'addFolder'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('get', '/news/folders/{folderid}', array('OC_News_API_Folders', 'getFolder'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('put', '/news/folders/{folderid}', array('OC_News_API_Folders', 'editFolder'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('delete', '/news/folders/{folderid}', array('OC_News_API_Folders', 'deleteFolder'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('get', '/news/folders/{folderid}/folders', array('OC_News_API_Folders', 'getFromFolder'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('post', '/news/folders/{folderid}/folders', array('OC_News_API_Folders', 'addToFolder'), 'news', \OC_API::USER_AUTH);
+\OCP\API::register('delete', '/news/folders/{folderid}/folders', array('OC_News_API_Folders', 'removeFromFolder'), 'news', \OC_API::USER_AUTH);
