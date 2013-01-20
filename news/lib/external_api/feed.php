@@ -30,7 +30,7 @@ class API_Feed {
 		$this->folderMapper = $folderMapper;
 	}
 
-    public function getFeeds($parameters){
+    public static function getFeeds($parameters){
 		$feedmapper = new FeedMapper();
 		$feeds = $feedmapper->findAll();
 

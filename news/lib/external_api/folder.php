@@ -15,7 +15,7 @@ namespace OCA\News;
 
 class API_Folder {
 
-    public function getFolders($parameters) {
+    public static function getFolders($parameters) {
 		$foldermapper = new FolderMapper();
 		$folders = $foldermapper->childrenOf(0);
 
